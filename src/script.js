@@ -43,28 +43,30 @@ window.addEventListener('load', () => {
   })();
   window.addEventListener('resize', resize);
   const darkColorScheme = window.matchMedia('(prefers-color-scheme: dark)');
-  const setTheme = (theme) => ({...terminal.options.theme, ...theme});
-  let colorScheme;
-  (colorScheme = () => {
+  let setColorScheme;
+  (setColorScheme = () => {
     if (darkColorScheme.matches) {
-      terminal.options.theme = setTheme({
+      terminal.options.theme = {
+        ...terminal.options.theme,
         background: '#212121',
         foreground: '#e0e0e0',
         selectionBackground: '#e0e0e0',
         selectionForeground: '#9e9e9e',
         cursor: '#e0e0e0',
         cursorAccent: '#9e9e9e'
-      });
-    } else {
-      terminal.options.theme = setTheme({
+      };
+    }
+    else {
+      terminal.options.theme = {
+        ...terminal.options.theme,
         background: '#fafafa',
         foreground: '#616161',
         selectionBackground: '#616161',
         selectionForeground: '#9e9e9e',
         cursor: '#616161',
         cursorAccent: '#9e9e9e'
-      });
+      };
     }
   })();
-  darkColorScheme.addEventListener('change', colorScheme);
+  darkColorScheme.addEventListener('change', setColorScheme);
 });
