@@ -37,9 +37,9 @@ window.addEventListener('load', () => {
   socket.on('exit', () => location.reload());
   let resize;
   (resize = () => {
-      const {cols, rows} = fitAddon.proposeDimensions();
-      socket.emit('resize', cols, rows);
-      fitAddon.fit();
+    const {cols, rows} = fitAddon.proposeDimensions();
+    socket.emit('resize', cols, rows);
+    fitAddon.fit();
   })();
   window.addEventListener('resize', resize);
   const darkColorScheme = window.matchMedia('(prefers-color-scheme: dark)');
