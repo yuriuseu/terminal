@@ -8,14 +8,17 @@
 
 <p>Web-based terminal emulator using <a href="https://github.com/xtermjs/xterm.js"><code>xterm.js</code></a>, <a href="https://github.com/microsoft/node-pty"><code>node-pty</code></a>, and <a href="https://github.com/socketio/socket.io"><code>socket.io</code></a>.<p>
 
-Get started by initializing the local web server (defaults to <a href="http://localhost:4173"><code>http://localhost:4173</code></a>):
+Get started by installing dependencies and start the local web server:
+
+<blockquote>See additional required <a href="https://github.com/microsoft/node-pty#dependencies">dependencies</a> for different platforms.</blockquote>
 
 ```console
 npm install
-npm start
+npm run build
+npm run preview
 ```
 
-<blockquote>See additional <a href="https://github.com/microsoft/node-pty#dependencies">dependencies</a> for different platforms.</blockquote>
+<blockquote>Run <code>npm run serve</code> for development server which does not include web manifest and service worker.</blockquote>
 
 <blockquote>Appearance automatically switches depending on device's light and dark mode.</blockquote>
 

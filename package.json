@@ -1,7 +1,10 @@
 {
+  "name": "terminal",
   "type": "module",
   "scripts": {
-    "start": "node server.js"
+    "serve": "node server.js --serve",
+    "build": "node server.js --build",
+    "preview": "node server.js --preview"
   },
   "dependencies": {
     "node-pty": "^0.10.1",
