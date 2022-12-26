@@ -8,7 +8,7 @@
 
 <p>Web-based terminal emulator using <a href="https://github.com/xtermjs/xterm.js"><code>xterm.js</code></a>, <a href="https://github.com/microsoft/node-pty"><code>node-pty</code></a>, and <a href="https://github.com/socketio/socket.io"><code>socket.io</code></a>.<p>
 
-Get started by installing dependencies and start the local web server:
+<p>Get started by installing dependencies and start the local web server:<p>
 
 <blockquote>See additional required <a href="https://github.com/microsoft/node-pty#dependencies">dependencies</a> for different platforms.</blockquote>
 
