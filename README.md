@@ -18,7 +18,7 @@ npm run build
 npm run serve
 ```
 
-<blockquote>Run <code>npm run serve</code> for development server which does not include web manifest and service worker.</blockquote>
+<blockquote>Run <code>npm run dev</code> for development server which does not include web manifest and service worker.</blockquote>
 
 <blockquote>Appearance automatically switches depending on device's light and dark mode.</blockquote>
 
