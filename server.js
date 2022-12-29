@@ -87,9 +87,9 @@ const io = (server) => {
       env: process.env
     });
     socket.on('input', (data) => terminal.write(data));
-    terminal.onData('data', (data) => socket.emit('output', data));
+    terminal.onData((data) => socket.emit('output', data));
     socket.on('resize', (cols, rows) => terminal.resize(cols, rows));
-    terminal.onExit('exit', () => socket.emit('exit'));
+    terminal.onExit(() => socket.emit('exit'));
   });
 };
 
