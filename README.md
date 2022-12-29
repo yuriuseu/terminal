@@ -15,7 +15,7 @@
 ```console
 npm install
 npm run build
-npm run preview
+npm run serve
 ```
 
 <blockquote>Run <code>npm run serve</code> for development server which does not include web manifest and service worker.</blockquote>

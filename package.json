@@ -2,9 +2,9 @@
   "name": "terminal",
   "type": "module",
   "scripts": {
-    "serve": "node server.js --serve",
+    "dev": "node server.js --dev",
     "build": "node server.js --build",
-    "preview": "node server.js --preview"
+    "serve": "node server.js --serve"
   },
   "dependencies": {
     "node-pty": "^0.10.1",

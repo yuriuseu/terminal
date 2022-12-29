@@ -87,14 +87,14 @@ const io = (server) => {
       env: process.env
     });
     socket.on('input', (data) => terminal.write(data));
-    terminal.on('data', (data) => socket.emit('output', data));
+    terminal.onData('data', (data) => socket.emit('output', data));
     socket.on('resize', (cols, rows) => terminal.resize(cols, rows));
-    terminal.on('exit', () => socket.emit('exit'));
+    terminal.onExit('exit', () => socket.emit('exit'));
   });
 };
 
 (async () => {
-  if (process.argv.includes('--serve')) {
+  if (process.argv.includes('--dev')) {
     const server = await createServer(config);
     io(server.httpServer);
     await server.listen();
@@ -103,7 +103,7 @@ const io = (server) => {
   else if (process.argv.includes('--build')) {
     await build(config);
   }
-  else if (process.argv.includes('--preview')) {
+  else if (process.argv.includes('--serve')) {
     const server = await preview(config);
     io(server.httpServer);
     server.printUrls();
