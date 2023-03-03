@@ -1,8 +1,8 @@
 import {build, createServer, defineConfig, preview} from 'vite';
 import {VitePWA} from 'vite-plugin-pwa';
 import {Server} from 'socket.io';
-import pty from 'node-pty';
-import os from 'os';
+import {spawn} from 'node-pty';
+import {platform} from 'os';
 
 const config = defineConfig({
   plugins: [
@@ -80,8 +80,8 @@ const config = defineConfig({
 const io = (server) => {
   server = new Server(server);
   server.on('connection', (socket) => {
-    const shell = process.env[os.platform() == 'win32' ? 'COMSPEC' : 'SHELL'];
-    const terminal = pty.spawn(shell, [], {
+    const shell = process.env[platform() == 'win32' ? 'COMSPEC' : 'SHELL'];
+    const terminal = spawn(shell, [], {
       name: 'xterm-256color',
       cwd: process.env.HOME,
       env: process.env
@@ -89,7 +89,10 @@ const io = (server) => {
     socket.on('input', (data) => terminal.write(data));
     terminal.onData((data) => socket.emit('output', data));
     socket.on('resize', (cols, rows) => terminal.resize(cols, rows));
-    terminal.onExit(() => socket.emit('exit'));
+    terminal.onExit(() => {
+      socket.emit('exit');
+      process.exit();
+    });
   });
 };
 
